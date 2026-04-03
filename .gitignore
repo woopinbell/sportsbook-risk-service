@@ -1,5 +1,6 @@
 # AI session context — operational file, not a project artifact
 CLAUDE.md
+.claude/
 
 # Maven
 target/
