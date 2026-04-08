@@ -120,11 +120,26 @@ risk-service/
 
 ## 성능
 
-부하/증명 테스트 결과는 핵심 기능 완성 후 `load-test/results/`에 박제 + 이 섹션에 숫자 박제. 목표는 sportsbook/CLAUDE.md "테스트 및 증명 전략":
+부하/증명 테스트는 `load-test/`에 박제. 최고 성능은 [`load-test/results/BEST.md`](load-test/results/BEST.md), 실행 가이드는 [`load-test/README.md`](load-test/README.md). 2026-05-29 단일 host 측정:
 
-- check API: 5 000 동시 요청, p99 < 30 ms
-- Kafka consume throughput: 10 만 events/sec
-- 정합성 invariant: 한도 임박 시점 동시 베팅 race → 한도 초과 모두 거절
+| 시나리오 | metric | 측정값 | 목표 |
+|---|---|---|---|
+| `POST /internal/v1/risk/check` (1 000 RPS realistic) | p50 / p95 / p99 | **2.34 ms / 11.03 ms / 30.21 ms** | < 5 / < 15 / **< 30 ms** |
+| 동일 endpoint, 5 000 VU saturation | p95 / p99 | 1.46 s / 1.73 s | 운영 한계 |
+| Kafka `bet.placed` produce (100k records, 256 B) | 처리량 | **173 010 events/s** | 100 000 events/s |
+| 정합성 invariant (100 동시 record) | sum 정확도 | 100 × stake 정확 | race 0 |
+
+p99 30.21 ms 는 30 ms 목표에 0.21 ms (0.7 %) 근접. 단일 측정, JIT 워밍업 미적용 상태. 후속 개선 — Lua GC tuning, Lettuce shared vs pool 비교, 측정 전 warm-up phase — 는 retrospective 단계에서 다룰 예정.
+
+### 관측성 메트릭 (ADR-0007)
+
+`/actuator/prometheus` 가 다음 지표를 노출:
+
+- `risk_check_latency_seconds` (Timer) — check API 응답시간 histogram
+- `risk_limit_violations_total{reason}` — 한도 위반별 카운트
+- `risk_pattern_flags_total{rule, action}` — 패턴 매치별 카운트
+
+Grafana 대시보드 JSON은 retrospective 단계에서 [`orchestration/observability/dashboards/`](../orchestration/observability/dashboards/) 에 박제.
 
 ## 제한 사항 (V1 의도적 제외)
 
