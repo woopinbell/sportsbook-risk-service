@@ -11,18 +11,18 @@ finalize)은 문서화 대상이 아니다. 각 페이지는 9단 구조(제목 
 
 | # | 문서 | 커밋 | 주제 | 유형 |
 |---|---|---|---|---|
-| 000 | [000.md](./000.md) | `4f813ac` | 프로젝트 골격 (pom / yaml / 진입점) | chore |
-| 001 | [001.md](./001.md) | `b0cb57c` | 정책 바인딩 (`@ConfigurationProperties` record 2종) | feat |
-| 002 | [002.md](./002.md) | `07c652a` | `.claude/` 무시 (housekeeping) | chore |
-| 003 | [003.md](./003.md) | `03ee3c8` | Redis sliding window counter (sorted set + Lua) | feat |
-| 004 | [004.md](./004.md) | `56cf266` | 한도 override + 정책 fallback resolver | feat |
-| 005 | [005.md](./005.md) | `1f90d1b` | 패턴 룰 엔진 (전략 패턴) | feat |
-| 006 | [006.md](./006.md) | `72f75d1` | 동기 check API + 한도 관리 엔드포인트 | feat |
-| 007 | [007.md](./007.md) | `ca23aec` | Kafka event sourcing + 위험 이벤트 publish | feat |
-| 008 | [008.md](./008.md) | `bd96fb4` | commons-pool2 (Lettuce pool) | build |
-| 009 | [009.md](./009.md) | `06e85fb` | 부하/증명 baseline (k6 + perf-test) | test |
-| 010 | [010.md](./010.md) | `1e9326f` | README 성능 섹션 박제 | docs |
-| 011 | [011.md](./011.md) | `b709e77` | Redis 타임아웃 확대 (콜드스타트 connection init) | fix |
+| 000 | [000.md](./000.md) | `23c6388` | 프로젝트 골격 (pom / yaml / 진입점) | chore |
+| 001 | [001.md](./001.md) | `360ca13` | 정책 바인딩 (`@ConfigurationProperties` record 2종) | feat |
+| 002 | [002.md](./002.md) | `ff6bbe3` | `.claude/` 무시 (housekeeping) | chore |
+| 003 | [003.md](./003.md) | `75a3025` | Redis sliding window counter (sorted set + Lua) | feat |
+| 004 | [004.md](./004.md) | `50505b7` | 한도 override + 정책 fallback resolver | feat |
+| 005 | [005.md](./005.md) | `2ba9031` | 패턴 룰 엔진 (전략 패턴) | feat |
+| 006 | [006.md](./006.md) | `c3bf24f` | 동기 check API + 한도 관리 엔드포인트 | feat |
+| 007 | [007.md](./007.md) | `30cbcea` | Kafka event sourcing + 위험 이벤트 publish | feat |
+| 008 | [008.md](./008.md) | `4427fa6` | commons-pool2 (Lettuce pool) | build |
+| 009 | [009.md](./009.md) | `410af5a` | 부하/증명 baseline (k6 + perf-test) | test |
+| 010 | [010.md](./010.md) | `49d4f16` | README 성능 섹션 박제 | docs |
+| 011 | [011.md](./011.md) | `d591b89` | Redis 타임아웃 확대 (콜드스타트 connection init) | fix |
 
 작성 일자: dev는 2026-05-28, 부하·README는 2026-05-29, 콜드스타트 fix(011)는 통합 e2e에서
 발견돼 2026-05-31. 문서 작성은 retrospective 단계(2026-05-29, 011은 2026-05-31 추가).
