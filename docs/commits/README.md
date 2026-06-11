@@ -23,13 +23,13 @@ finalize)은 문서화 대상이 아니다. 각 페이지는 9단 구조(제목 
 | 009 | [009.md](./009.md) | `410af5a` | 부하/증명 baseline (k6 + perf-test) | test |
 | 010 | [010.md](./010.md) | `49d4f16` | README 성능 섹션 박제 | docs |
 | 011 | [011.md](./011.md) | `d591b89` | Redis 타임아웃 확대 (콜드스타트 connection init) | fix |
-| 012 | [012.md](./012.md) | `1da19e1` | bet-placed 구독 토픽 정렬 (발행측 `.v1` 드리프트) | fix |
+| 012 | [012.md](./012.md) | `f538376` | bet-placed 구독 토픽 정렬 (발행측 `.v1` 드리프트) | fix |
 
 작성 일자: dev는 2026-05-28, 부하·README는 2026-05-29, 콜드스타트 fix(011)는 통합 e2e에서
 발견돼 2026-05-31. 문서 작성은 retrospective 단계(2026-05-29, 011은 2026-05-31 추가).
 
 **phase 경계**: 000~011 = phase 1(최초 구현 window + retrospective 메타). **012부터 phase 2**
-(후속 fix 윈도우, 2026-06-11 시작, 시작 커밋 `1da19e1`) — 경계 규정은 commit-policy.md
+(후속 fix 윈도우, 2026-06-11 시작, 시작 커밋 `f538376`) — 경계 규정은 commit-policy.md
 §날짜·배치(phase 단위 경계 분리).
 
 ---
